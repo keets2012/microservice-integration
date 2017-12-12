@@ -9,6 +9,8 @@
 
 ## 项目使用方法
 
+如果你的GitHub网络有问题，请移步码云：https://gitee.com/keets/microservice-integration
+
 ### 涉及到的组件与服务
 
 微服务架构基于Spring Cloud，用到了部分Spring Cloud提供的组件。
