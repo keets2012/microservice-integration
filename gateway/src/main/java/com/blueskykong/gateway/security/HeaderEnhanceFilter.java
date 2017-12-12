@@ -84,7 +84,7 @@ public class HeaderEnhanceFilter implements Filter {
     }
 
     private boolean isNotOAuthEndpoint(String requestURI) {
-        return !requestURI.contains("/login/oauth");
+        return !requestURI.contains("/login");
     }
 
     private HttpServletRequestWrapper removeValueFromRequestHeader(HttpServletRequest request) {

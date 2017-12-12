@@ -7,6 +7,9 @@ auth:
 
 
 zuul:
+  ribbon:
+    eager-load:
+      enabled: true     #zuul饥饿加载
   host:
     maxTotalConnections: 200
     maxPerRouteConnections: 20
@@ -44,8 +47,8 @@ security:
   oauth2:
     client:
       accessTokenUri: /oauth/token
-      clientId: gateway
-      clientSecret: gateway
+      clientId: frontend
+      clientSecret: frontend
     resource:
       userInfoUri: /user
       token-info-uri: /oauth/check_token

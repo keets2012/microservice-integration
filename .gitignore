@@ -17,5 +17,5 @@ auditlog/
 tmp.*
 
 /api-gateway/src/main/resources/*.yml
-auth-server/src/main/resources/*.yml
 
+*.yml
