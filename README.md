@@ -1,17 +1,12 @@
 # 整合项目
 
-整合的项目包括网关、auth权限服务和backend服务。提供了一套微服务架构下，网关服务路由、鉴权和授权认证的项目案例。
-
-**单独的整合项目地址为：   
-GitHub：https://github.com/keets2012/microservice-integration   
-或者 码云：https://gitee.com/keets/microservice-integration**
-
-整个项目的架构图如下：
+整合的项目包括网关、auth权限服务和backend服务。提供了一套微服务架构下，网关服务路由、鉴权和授权认证的项目案例。整个项目的架构图如下：
 
 ![ms](http://ovcjgn2x0.bkt.clouddn.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9D%83%E9%99%90%20%281%29.png "微服务架构权限")
 
 欲了解更多，见博客《[微服务架构中整合网关、权限服务](http://blueskykong.com/2017/12/10/integration/)》 
 
+ **你的star是对我最好的鼓励^_^**
 
 ## 项目使用方法
 
