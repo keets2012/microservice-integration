@@ -1,0 +1,52 @@
+auth:
+  permitall:
+    -
+      pattern: /login/**
+    -
+      pattern: /web/**
+
+
+zuul:
+  host:
+    maxTotalConnections: 200
+    maxPerRouteConnections: 20
+  routes:
+    user:
+      path: /user/**
+      ignoredPatterns: /consul
+      serviceId: user
+      sensitiveHeaders: Cookie,Set-Cookie
+    demo:
+      path: /demo/**
+      ignoredPatterns: /consul
+      serviceId: authdemo
+      sensitiveHeaders: Cookie,Set-Cookie
+    auth:
+      path: /login/**
+      ignoredPatterns: /consul
+      serviceId: auth
+      sensitiveHeaders: Cookie,Set-Cookie
+
+ribbon:
+  ReadTimeout: 1000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 1000
+
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: /oauth/token
+      clientId: gateway
+      clientSecret: gateway
+    resource:
+      userInfoUri: /user
+      token-info-uri: /oauth/check_token
+  filter-order: 1
