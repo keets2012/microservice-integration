@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.2.RELEASE</version>
+        <version>1.5.10.RELEASE</version>
     </parent>
 
     <groupId>com.blueskykong.microservice</groupId>
@@ -27,7 +27,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.java>1.8</version.java>
-        <version.spring-boot>1.5.6.RELEASE</version.spring-boot>
+        <spring-cloud.version>Edgware.SR3</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -60,7 +60,7 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>
@@ -110,7 +110,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Dalston.RELEASE</version>
+                <version>Edgware.SR3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

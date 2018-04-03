@@ -21,7 +21,6 @@
         <oval.version>1.85</oval.version>
         <common.version>1.0-SNAPSHOT</common.version>
         <dbunit.version>2.5.3</dbunit.version>
-        <spring.version>4.3.8.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -41,16 +40,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-security</artifactId>
-            <version>1.2.1.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
-            <version>1.2.1.RELEASE</version>
         </dependency>
-
-
         <!-- db-->
         <dependency>
             <groupId>mysql</groupId>
