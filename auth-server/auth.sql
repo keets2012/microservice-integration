@@ -77,7 +77,7 @@ CREATE TABLE `oauth_client_details` (
 
 -- ----------------------------
 
-INSERT INTO `oauth_client_details` VALUES ('frontend', null, 'frontend', 'all', 'password,refresh_token', null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `oauth_client_details` VALUES ('frontend', null, 'frontend', 'all', 'password,refresh_token, authorization_code', null, null, null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `oauth_client_details` VALUES ('web', null, 'web', 'all', 'password,refresh_token', null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------

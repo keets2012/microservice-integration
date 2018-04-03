@@ -5,11 +5,9 @@ server:
 eureka:
   instance:
     instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-    metadata-map:
-      mymetaData: mydata
   client:
     service-url:
-      default-zone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 ---
 spring:
