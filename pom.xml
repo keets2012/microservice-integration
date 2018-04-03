@@ -21,6 +21,7 @@
         <module>gateway</module>
         <module>auth-server</module>
         <module>backend-server</module>
+        <module>eureka-server</module>
     </modules>
 
     <properties>
@@ -46,7 +47,7 @@
             </exclusions>
         </dependency>
 
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
             <exclusions>
@@ -55,6 +56,11 @@
                     <groupId>javax.ws.rs</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
 
         <dependency>

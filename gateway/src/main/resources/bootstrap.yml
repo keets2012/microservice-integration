@@ -8,33 +8,17 @@ spring:
   profiles: default
   application:
     name: gatewayserver
-  cloud:
-    consul:
-      discovery:
-        preferIpAddress: true
-        enabled: true
-        register: true
-        service-name: api-getway
-        health-check-interval: 10s
-        health-check-timeout: 20s
-        heartbeat:
-          enabled: true
-        ip-address: ${HOST_ADDRESS:localhost}
-        port: ${SERVER_PORT:${server.port}}
-        lifecycle:
-          enabled: true
-        scheme: http
-        prefer-agent-address: false
-        register-health-check: true
-        tags: master
-        query-passing: true
-      retry:
-        initial-interval: 1000
-        max-attempts: 4
-        max-interval: 1000
-      host: 192.168.1.200
-      port: 8500
   http:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+
+---
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+    metadata-map:
+      mymetaData: mydata
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
