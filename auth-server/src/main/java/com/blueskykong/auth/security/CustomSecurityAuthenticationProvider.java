@@ -8,7 +8,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +18,7 @@ import java.util.UUID;
  * @date 2017/8/5
  */
 @Component
-public class CustomAuthenticationProvider implements AuthenticationProvider {
+public class CustomSecurityAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     private UserClient userClient;
@@ -28,21 +27,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password;
-        Map data;
-        if(authentication.getDetails() instanceof Map) {
-            data = (Map) authentication.getDetails();
-        }else{
-            return null;
-        }
-        String clientId = (String) data.get("client");
-        Assert.hasText(clientId, "clientId must have value");
-        String type = (String) data.get("type");
+
         Map map;
 
         password = (String) authentication.getCredentials();
         //如果你是调用user服务，这边不用注掉
         //map = userClient.checkUsernameAndPassword(getUserServicePostObject(username, password, type));
-        map = checkUsernameAndPassword(getUserServicePostObject(username, password, type));
+        map = checkUsernameAndPassword(getUserServicePostObject(username, password));
 
 
         String userId = (String) map.get("userId");
@@ -50,27 +41,24 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             String errorCode = (String) map.get("code");
             throw new BadCredentialsException(errorCode);
         }
-        CustomUserDetails customUserDetails = buildCustomUserDetails(username, password, userId, clientId);
+        CustomUserDetails customUserDetails = buildCustomUserDetails(username, password, userId);
         return new CustomAuthenticationToken(customUserDetails);
     }
 
-    private CustomUserDetails buildCustomUserDetails(String username, String password, String userId, String clientId) {
+    private CustomUserDetails buildCustomUserDetails(String username, String password, String userId) {
         CustomUserDetails customUserDetails = new CustomUserDetails.CustomUserDetailsBuilder()
                 .withUserId(userId)
                 .withPassword(password)
                 .withUsername(username)
-                .withClientId(clientId)
+                .withClientId("for Security")
                 .build();
         return customUserDetails;
     }
 
-    private Map<String, String> getUserServicePostObject(String username, String password, String type) {
+    private Map<String, String> getUserServicePostObject(String username, String password) {
         Map<String, String> requestParam = new HashMap<String, String>();
         requestParam.put("userName", username);
         requestParam.put("password", password);
-        if (type != null && StringUtils.isNotBlank(type)) {
-            requestParam.put("type", type);
-        }
         return requestParam;
     }
 

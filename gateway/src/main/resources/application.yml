@@ -16,19 +16,17 @@ zuul:
   routes:
     user:
       path: /user/**
-      ignoredPatterns: /consul
       serviceId: user
       sensitiveHeaders: Cookie,Set-Cookie
     demo:
       path: /demo/**
-      ignoredPatterns: /consul
       serviceId: authdemo
       sensitiveHeaders: Cookie,Set-Cookie
     auth:
       path: /login/**
-      ignoredPatterns: /consul
-      serviceId: auth
+      serviceId: authserver
       sensitiveHeaders: Cookie,Set-Cookie
+
 
 ribbon:
   ReadTimeout: 1000
