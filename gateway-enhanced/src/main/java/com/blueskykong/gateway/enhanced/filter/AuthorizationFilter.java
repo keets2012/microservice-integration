@@ -50,7 +50,7 @@ public class AuthorizationFilter implements GlobalFilter, Ordered {
             LOGGER.info("success auth token and permission!");
         }
 
-        return chain.filter(exchange.mutate().request(request).build());
+        return chain.filter(exchange);
     }
 
     public Boolean predicate(ServerWebExchange serverWebExchange) {

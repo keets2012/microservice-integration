@@ -18,6 +18,7 @@ import java.util.UUID;
  * @author keets
  * @date 2017/11/22
  */
+
 @Path("/")
 public class UserRoleResource {
 

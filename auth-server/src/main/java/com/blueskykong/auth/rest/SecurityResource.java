@@ -26,6 +26,7 @@ import java.util.UUID;
  * @author keets
  * @date 2017/10/15
  */
+
 @Path("/")
 public class SecurityResource {
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityResource.class);

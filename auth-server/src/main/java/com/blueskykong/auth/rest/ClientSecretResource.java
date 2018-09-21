@@ -1,3 +1,4 @@
+
 package com.blueskykong.auth.rest;
 
 import com.blueskykong.auth.dto.ApiClientDTO;
@@ -14,10 +15,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+
 /**
  * @author keets
  * @date 2017/9/18
  */
+
 @Path("/")
 public class ClientSecretResource {
 
@@ -52,3 +55,4 @@ public class ClientSecretResource {
         return Response.ok().build();
     }
 }
+

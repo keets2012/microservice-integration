@@ -26,8 +26,8 @@ spring:
         initial-interval: 1000
         max-attempts: 4
         max-interval: 1000
-      host: 192.168.1.204
-      port: 8500
+      host: localhost
+      port: 8501
 
 ---
 spring:
