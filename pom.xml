@@ -21,6 +21,7 @@
         <module>gateway</module>
         <module>auth-server</module>
         <module>backend-server</module>
+        <module>gateway-enhanced</module>
     </modules>
 
     <properties>
