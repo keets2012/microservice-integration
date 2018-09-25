@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
@@ -21,12 +22,12 @@ public class GatewayApplication {
     }
 
 
-    @GetMapping("/error")
+    @RequestMapping("/error")
     public List<String> error() {
         return Arrays.asList("sorry, something went wrong.");
     }
 
-    @RequestMapping("/fallbackcontroller")
+    @RequestMapping(value = "/fallbackcontroller")
     public Map<String, String> fallBackController() {
         Map<String, String> res = new HashMap();
         res.put("code", "-100");

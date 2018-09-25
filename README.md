@@ -1,3 +1,5 @@
+
+
 # 整合项目
 
 **consul的版本为0.8.5版本** [下载链接](https://releases.hashicorp.com/consul/?_ga=2.162761215.274382960.1520773282-289586393.1498458549)
@@ -10,6 +12,15 @@
 欲了解更多，见博客《[微服务架构中整合网关、权限服务](http://blueskykong.com/2017/12/10/integration/)》 
 
  **你的star是对我最好的鼓励^_^**
+
+## change log
+增加了Spring Cloud Gateway作为网关实现的模块，详见：[微服务网关Zuul迁移到Spring Cloud Gateway](http://blueskykong.com/2018/09/20/integration-enhanced/)
+
+新增功能：
+
+- 全局断路器
+- 限流过滤器
+- ...
 
 ## 项目使用方法
 

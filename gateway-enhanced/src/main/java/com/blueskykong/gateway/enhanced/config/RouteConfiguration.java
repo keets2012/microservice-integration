@@ -9,7 +9,6 @@ import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.RequestPredicates;
@@ -35,7 +34,7 @@ public class RouteConfiguration {
         //@formatter:off
         return builder.routes()
                 .route(r -> r.path("/**/inner/**")
-                        .uri("http://localhost:18000/error").order(-102)
+                        .uri("http://localhost:9099/error").order(-102)
                 )
                 .route("read_body_pred", r -> r.path("/test10/test2").and().readBody(String.class,
                         s -> {
@@ -76,11 +75,11 @@ public class RouteConfiguration {
         return builder.routes()
                 .route(r -> r.host("**.changeuri.org").and().header("X-Next-Url")
                         .filters(f -> f.requestHeaderToRequestUri("X-Next-Url"))
-                        .uri("http://example.com"))
+                        .uri("http://blueskykong.com"))
                 .route(r -> r.host("**.changeuri.org").and().query("url")
                         .filters(f -> f.changeRequestUri(e -> Optional.of(URI.create(
                                 e.getRequest().getQueryParams().getFirst("url")))))
-                        .uri("http://example.com"))
+                        .uri("http://blueskykong.com"))
                 .build();
     }
 
