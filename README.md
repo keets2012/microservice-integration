@@ -14,6 +14,7 @@
  **你的star是对我最好的鼓励^_^**
 
 ## change log
+### 2018.9.25
 增加了Spring Cloud Gateway作为网关实现的模块，详见：[微服务网关Zuul迁移到Spring Cloud Gateway](http://blueskykong.com/2018/09/20/integration-enhanced/)
 
 新增功能：
