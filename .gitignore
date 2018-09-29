@@ -16,6 +16,3 @@ auditlog/
 .DS_Store
 tmp.*
 
-/api-gateway/src/main/resources/*.yml
-
-*.yml

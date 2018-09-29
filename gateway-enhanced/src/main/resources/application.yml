@@ -1,0 +1,87 @@
+auth:
+  permitall:
+    -
+      pattern: /login/**
+    -
+      pattern: /web/**
+
+gateway:
+  limit:
+    redis-rate: # token
+      replenish-rate: 10
+      burst-capacity: 3000
+    throttle: # leaky
+      capacity: 10000
+      refill-tokens: 50
+      refill-period: 5
+
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: /oauth/token
+      clientId: gateway
+      clientSecret: gateway
+    resource:
+      userInfoUri: /user
+      token-info-uri: /oauth/check_token
+
+---
+
+spring:
+  redis:
+    host: localhost
+    password: Superid123
+    port: 6378
+  cloud:
+#    globalcors:
+#      corsConfigurations:
+#        '[/**]':
+#          allowedOrigins: "blueskykong.com"
+#          allowedMethods:
+#          - GET
+    gateway:
+      locator:
+        enabled: true
+      default-filters:
+#      - AddRequestHeader=X-Request-Foo, Bar
+      - name: RequestRateLimiter
+        args:
+          key-resolver: "#{@remoteAddrKeyResolver}"
+          rate-limiter: "#{@customRateLimiter}"   # token
+      - name: Hystrix
+        args:
+          name: fallbackcmd
+          fallbackUri: forward:/fallbackcontroller
+      routes:
+      # =====================================
+      - id: service_to_user
+        uri: lb://user
+        order: 8000
+        predicates:
+        - Path=/user/**
+        filters:
+        - StripPrefix=1
+      - id: service_to_auth
+        uri: lb://auth
+        order: 9000
+        predicates:
+        - Path=/login/**
+        filters:
+        - StripPrefix=1
+      # =====================================
+      - id: default_path_to_error
+        uri: http://localhost:9099/error
+        order: 10000
+        predicates:
+        - Path=/**
+        filters:
+        - AddRequestParameter=foo, bar
+      - id: service_to_web
+        uri: lb://authdemo
+        predicates:
+        - Path=/demo/**
+        filters:
+        - StripPrefix=1
+
+hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 8000
