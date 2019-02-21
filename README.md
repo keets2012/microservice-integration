@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/keets2012/Auth-service.svg?branch=master)](https://travis-ci.org/keets2012/Auth-service)
-[![codebeat badge](https://codebeat.co/badges/4594f615-67af-46b0-9adf-b69b476dc250)](https://codebeat.co/projects/github-com-keets2012-auth-service-master)
+[![codebeat badge](https://codebeat.co/badges/6ac5bf89-c645-4c84-9b6c-70a36f5134e9)](https://codebeat.co/projects/github-com-keets2012-microservice-integration-master)
 ![](https://img.shields.io/badge/license-MIT-000000.svg)
 
 # 整合项目
