@@ -10,7 +10,7 @@ spring:
 #        healthCheckPath: /health
         healthCheckInterval: 15s
         instanceId: ${spring.cloud.consul.discovery.service-name}-${spring.profiles.active}-${spring.cloud.consul.discovery.ip-address}-${random.value}
-        ip-address: ${HOST_ADDRESS:192.168.1.77}
+        ip-address: ${HOST_ADDRESS:localhost}
         service-name: gateway-server
 
 server:

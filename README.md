@@ -1,4 +1,6 @@
-
+[![Build Status](https://travis-ci.org/keets2012/Auth-service.svg?branch=master)](https://travis-ci.org/keets2012/Auth-service)
+[![codebeat badge](https://codebeat.co/badges/4594f615-67af-46b0-9adf-b69b476dc250)](https://codebeat.co/projects/github-com-keets2012-auth-service-master)
+![](https://img.shields.io/badge/license-MIT-000000.svg)
 
 # 整合项目
 
@@ -13,7 +15,7 @@
 
  **你的star是对我最好的鼓励^_^**
 
-## change log
+## change logs
 ### 2018.9.25
 增加了Spring Cloud Gateway作为网关实现的模块，详见：[微服务网关Zuul迁移到Spring Cloud Gateway](http://blueskykong.com/2018/09/20/integration-enhanced/)
 

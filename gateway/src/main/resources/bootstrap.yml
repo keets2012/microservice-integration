@@ -2,9 +2,6 @@ server:
   port: 10101
 
 spring:
-  sleuth:
-    sampler:
-      percentage: 1
   profiles: default
   application:
     name: gatewayserver

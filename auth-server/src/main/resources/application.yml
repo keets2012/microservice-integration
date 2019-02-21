@@ -6,9 +6,9 @@ spring:
       maximum-pool-size: 5
       pool-name: dbcp1
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/auth_test?autoReconnect=true&useSSL=false
-    username: simu
-    password: pwd
+    url: jdbc:mysql://localhost:3316/auth?autoReconnect=true&useSSL=false
+    username: root
+    password: _123456_
     type: com.zaxxer.hikari.HikariDataSource
 
 ############################# Redis config #############################
@@ -31,8 +31,7 @@ redis:
   database: 0
   host:
     address: localhost
-    password: Superid123
-    port: 6378
+    port: 6379
   setup:
     flushdb: true
 

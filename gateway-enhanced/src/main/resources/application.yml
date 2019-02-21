@@ -31,8 +31,7 @@ security:
 spring:
   redis:
     host: localhost
-    password: Superid123
-    port: 6378
+    port: 6379
   cloud:
 #    globalcors:
 #      corsConfigurations:
