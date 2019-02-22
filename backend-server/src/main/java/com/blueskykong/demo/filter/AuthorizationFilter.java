@@ -6,6 +6,7 @@ import com.blueskykong.demo.constants.SecurityConstants;
 import com.blueskykong.demo.entity.Permission;
 import com.blueskykong.demo.security.CustomAuthentication;
 import com.blueskykong.demo.security.SimpleGrantedAuthority;
+import lombok.extern.java.Log;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,6 +26,7 @@ import java.util.UUID;
 /**
  * @author keets
  */
+@Log
 public class AuthorizationFilter implements Filter {
 
     @Autowired
@@ -32,12 +34,12 @@ public class AuthorizationFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("初始化过滤器。");
+        log.info("初始化过滤器。");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("过滤器正在执行...");
+        log.info("Filter过滤器正在执行...");
         // pass the request along the filter chain
         String userId = ((HttpServletRequest) servletRequest).getHeader(SecurityConstants.USER_ID_IN_HEADER);
 
@@ -53,7 +55,7 @@ public class AuthorizationFilter implements Filter {
                 authorityList.add(authority);
             }
 
-            CustomAuthentication userAuth  = new CustomAuthentication();
+            CustomAuthentication userAuth = new CustomAuthentication();
             userAuth.setAuthorities(authorityList);
             userContext.setAuthorities(authorityList);
             userContext.setAuthentication(userAuth);

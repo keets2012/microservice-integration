@@ -1,6 +1,6 @@
 spring:
   application:
-      name: aoho-gateway
+      name: gateway
   cloud:
     consul:
       host: ${CONSUL_ADDRESS:localhost}
@@ -27,6 +27,6 @@ logging:
     org.springframework.http.server.reactive: info
     org.springframework.web.reactive: info
     reactor.ipc.netty: info
-    cn.superid.gateway.enhanced: debug
+    com.blueskykong.gateway.enhanced: debug
 
 management.endpoints.web.exposure.include: '*'

@@ -9,6 +9,7 @@ import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.RequestPredicates;
@@ -97,6 +98,7 @@ public class RouteConfiguration {
     }
 
     @Bean(name = RemoteAddrKeyResolver.BEAN_NAME)
+    @Primary
     public RemoteAddrKeyResolver remoteAddrKeyResolver() {
         return new RemoteAddrKeyResolver();
     }

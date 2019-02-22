@@ -1,10 +1,10 @@
-package com.blueskykong.gateway.security;
+package com.blueskykong.gateway.zuul.security;
 
 /**
  * Created by keets on 2017/12/9.
  */
 
-import com.blueskykong.gateway.constants.SecurityConstants;
+import com.blueskykong.gateway.zuul.constants.SecurityConstants;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.cloud.client.ServiceInstance;

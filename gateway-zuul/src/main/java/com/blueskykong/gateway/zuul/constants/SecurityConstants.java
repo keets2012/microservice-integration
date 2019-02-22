@@ -1,4 +1,4 @@
-package com.blueskykong.gateway.constants;
+package com.blueskykong.gateway.zuul.constants;
 
 /**
  * Created by keets on 2017/12/9.

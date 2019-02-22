@@ -3,7 +3,7 @@ auth:
     -
       pattern: /login/**
     -
-      pattern: /web/**
+      pattern: /web/hello
 
 gateway:
   limit:
@@ -43,7 +43,7 @@ spring:
       locator:
         enabled: true
       default-filters:
-#      - AddRequestHeader=X-Request-Foo, Bar
+      - AddRequestHeader=X-Request-Foo, Bar
       - name: RequestRateLimiter
         args:
           key-resolver: "#{@remoteAddrKeyResolver}"
@@ -54,13 +54,12 @@ spring:
           fallbackUri: forward:/fallbackcontroller
       routes:
       # =====================================
-      - id: service_to_user
-        uri: lb://user
-        order: 8000
+      - id: service_to_web
+        uri: lb://authdemo
         predicates:
-        - Path=/user/**
+          - Path=/web/**
         filters:
-        - StripPrefix=1
+          - StripPrefix=1
       - id: service_to_auth
         uri: lb://auth
         order: 9000
@@ -76,11 +75,6 @@ spring:
         - Path=/**
         filters:
         - AddRequestParameter=foo, bar
-      - id: service_to_web
-        uri: lb://authdemo
-        predicates:
-        - Path=/demo/**
-        filters:
-        - StripPrefix=1
+
 
 hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 8000

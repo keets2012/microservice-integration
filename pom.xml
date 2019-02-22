@@ -16,7 +16,7 @@
     <name>auth-gateway-backend</name>
 
     <modules>
-        <module>gateway</module>
+        <module>gateway-zuul</module>
         <module>auth-server</module>
         <module>backend-server</module>
         <module>gateway-enhanced</module>

@@ -1,4 +1,4 @@
-package com.blueskykong.gateway.properties;
+package com.blueskykong.gateway.zuul.properties;
 
 
 import lombok.Data;

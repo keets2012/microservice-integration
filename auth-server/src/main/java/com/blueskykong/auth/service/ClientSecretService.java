@@ -6,6 +6,7 @@ import com.blueskykong.auth.dto.ApiClientDTO;
 import com.blueskykong.auth.entity.ClientSecret;
 import com.blueskykong.auth.entity.ClientSecretStatus;
 import com.google.common.collect.Lists;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import java.util.UUID;
  * @date 2017/10/18
  */
 @Service
+@Log
 public class ClientSecretService {
     @Autowired
     private ClientSecretDAO clientSecretDao;
@@ -37,7 +39,7 @@ public class ClientSecretService {
                 .withClientId(clientId)
                 .build();
         List<ClientSecret> results = clientSecretDao.get(clientSecret);
-        System.out.println(results.size());
+        log.info("results size is " + results.size());
         if (results.size() >= 1) {
             return convert(results.get(0));
         }

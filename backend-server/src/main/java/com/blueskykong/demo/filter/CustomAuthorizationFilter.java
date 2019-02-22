@@ -5,9 +5,11 @@ import com.blueskykong.demo.constants.AccessType;
 import com.blueskykong.demo.constants.SecurityConstants;
 import com.blueskykong.demo.entity.Permission;
 import com.blueskykong.demo.security.SimpleGrantedAuthority;
+import lombok.extern.java.Log;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
@@ -21,6 +23,7 @@ import java.util.UUID;
  * @author keets
  */
 @Provider
+@Log
 public class CustomAuthorizationFilter implements ContainerRequestFilter {
 
     @Autowired
@@ -33,7 +36,7 @@ public class CustomAuthorizationFilter implements ContainerRequestFilter {
         if (StringUtils.isNotEmpty(userId)) {
             UserContext userContext = new UserContext(UUID.fromString(userId));
             userContext.setAccessType(AccessType.ACCESS_TYPE_NORMAL);
-            System.out.println(userContext);
+            log.info(userContext.toString());
             List<Permission> permissionList = feignAuthClient.getUserPermissions(userId);
             List<SimpleGrantedAuthority> authorityList = new ArrayList();
             for (Permission permission : permissionList) {

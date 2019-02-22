@@ -1,7 +1,7 @@
-package com.blueskykong.gateway.config;
+package com.blueskykong.gateway.zuul.config;
 
-import com.blueskykong.gateway.properties.PermitAllUrlProperties;
-import com.blueskykong.gateway.security.CustomRemoteTokenServices;
+import com.blueskykong.gateway.zuul.properties.PermitAllUrlProperties;
+import com.blueskykong.gateway.zuul.security.CustomRemoteTokenServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;

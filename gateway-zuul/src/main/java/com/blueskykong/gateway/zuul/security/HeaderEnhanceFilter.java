@@ -1,7 +1,7 @@
-package com.blueskykong.gateway.security;
+package com.blueskykong.gateway.zuul.security;
 
-import com.blueskykong.gateway.constants.SecurityConstants;
-import com.blueskykong.gateway.properties.PermitAllUrlProperties;
+import com.blueskykong.gateway.zuul.constants.SecurityConstants;
+import com.blueskykong.gateway.zuul.properties.PermitAllUrlProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.netflix.zuul.context.RequestContext;
 import org.apache.commons.codec.binary.Base64;

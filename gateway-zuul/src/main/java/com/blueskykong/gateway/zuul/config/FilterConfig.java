@@ -1,6 +1,6 @@
-package com.blueskykong.gateway.config;
+package com.blueskykong.gateway.zuul.config;
 
-import com.blueskykong.gateway.security.HeaderEnhanceFilter;
+import com.blueskykong.gateway.zuul.security.HeaderEnhanceFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

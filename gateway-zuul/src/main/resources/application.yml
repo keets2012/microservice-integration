@@ -14,13 +14,8 @@ zuul:
     maxTotalConnections: 200
     maxPerRouteConnections: 20
   routes:
-    user:
-      path: /user/**
-      ignoredPatterns: /consul
-      serviceId: user
-      sensitiveHeaders: Cookie,Set-Cookie
     demo:
-      path: /demo/**
+      path: /web/**
       ignoredPatterns: /consul
       serviceId: authdemo
       sensitiveHeaders: Cookie,Set-Cookie

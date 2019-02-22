@@ -16,6 +16,7 @@ import org.springframework.cloud.gateway.filter.ratelimit.RedisRateLimiter;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.client.RestTemplate;
 
@@ -76,6 +77,7 @@ public class ServiceConfig {
     }
 
     @Bean(name = "customRateLimiter")
+    @Primary
     public RedisRateLimiter myRateLimiter(GatewayLimitProperties gatewayLimitProperties) {
         GatewayLimitProperties.RedisRate redisRate = gatewayLimitProperties.getRedisRate();
         if (Objects.isNull(redisRate)) {
