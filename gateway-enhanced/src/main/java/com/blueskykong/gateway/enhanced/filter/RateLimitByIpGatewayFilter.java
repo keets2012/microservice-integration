@@ -45,9 +45,6 @@ public class RateLimitByIpGatewayFilter implements GatewayFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        // if (!enableRateLimit){
-        //     return chain.filter(exchange);
-        // }
         String ip = exchange.getRequest().getRemoteAddress().getAddress().getHostAddress();
         Bucket bucket = CACHE.computeIfAbsent(ip, k -> createNewBucket());
 
@@ -64,5 +61,4 @@ public class RateLimitByIpGatewayFilter implements GatewayFilter, Ordered {
     public int getOrder() {
         return -1000;
     }
-
 }

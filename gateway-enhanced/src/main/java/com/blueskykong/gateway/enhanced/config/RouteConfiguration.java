@@ -39,11 +39,7 @@ public class RouteConfiguration {
                 )
                 .route("read_body_pred", r -> r.path("/test10/test2").and().readBody(String.class,
                         s -> {
-                            JsonObject jsonObject = (JsonObject) new Gson().fromJson(s, JsonObject.class);
-                            jsonObject.entrySet().size();
-                            String val = jsonObject.get("key").getAsString();
-
-                            return val.equalsIgnoreCase("hello");
+                            return s.equals("test");
 //                            return s.get("key").getAsString().equals("hello");
                         }).filters(f -> f.addResponseHeader("X-TestHeader", "read_body_pred"))
                                 .uri("http://httpbin.org")
@@ -61,15 +57,21 @@ public class RouteConfiguration {
                         .filters(f -> f.changeRequestUri(e -> Optional.of(URI.create(
                                 e.getRequest().getQueryParams().getFirst("url")))))
                         .uri("http://example.com"))
-                .route(r -> r.path("/customer/**")
+                .route(r -> r.path("/limiter/web/**")
                         .filters(f -> f.stripPrefix(2)
                                 .filter(new RateLimitByIpGatewayFilter(10, 1, Duration.ofSeconds(1))))
-                        .uri("http://baidu.com")
+                        .uri("lb://authdemo")
                         .order(0)
-                        .id("throttle_customer_service"))
+                        .id("rate_limit_ip_service"))
+                .route(r -> r.path("/blog")
+                        .filters(f ->
+                                f.addResponseHeader("X-Content-Source", "blog").stripPrefix(1))
+                        .uri("http://blueskykong.com")
+                )
                 .build();
         //@formatter:on
     }
+
 
     @Bean
     public RouteLocator routeLocator(RouteLocatorBuilder builder) {

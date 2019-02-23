@@ -3,7 +3,11 @@ auth:
     -
       pattern: /login/**
     -
-      pattern: /web/hello
+      pattern: /blog/**
+    -
+      pattern: /fallbackcontroller
+    -
+      pattern: /web/**
 
 gateway:
   limit:
@@ -40,26 +44,41 @@ spring:
 #          allowedMethods:
 #          - GET
     gateway:
-      locator:
-        enabled: true
+      loadbalancer:
+        use404: true
+      discovery:
+        locator:
+          enabled: true
       default-filters:
       - AddRequestHeader=X-Request-Foo, Bar
       - name: RequestRateLimiter
         args:
           key-resolver: "#{@remoteAddrKeyResolver}"
           rate-limiter: "#{@customRateLimiter}"   # token
-      - name: Hystrix
-        args:
-          name: fallbackcmd
-          fallbackUri: forward:/fallbackcontroller
+
       routes:
+      - id: ingredients-fallback
+        uri: http://localhost:9099
+        predicates:
+          - Path=/fallbackcontroller
+        filters:
+        - name: FallbackHeaders
+          args:
+            executionExceptionTypeHeaderName: X-Exception-Header
+            executionExceptionMessageHeaderName: X-Exception-Message
+            rootCauseExceptionTypeHeaderName: X-Root-Exception-Header
+            rootCauseExceptionMessageHeaderName: X-Root-Exception-Message
       # =====================================
       - id: service_to_web
         uri: lb://authdemo
         predicates:
-          - Path=/web/**
+        - Path=/web/**
         filters:
-          - StripPrefix=1
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/fallbackcontroller
+        - StripPrefix=1
       - id: service_to_auth
         uri: lb://auth
         order: 9000
