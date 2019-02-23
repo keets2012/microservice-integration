@@ -3,10 +3,6 @@
 ![](https://img.shields.io/badge/license-MIT-000000.svg)
 
 # 整合项目
-
-**consul的版本为0.8.5版本** [下载链接](https://releases.hashicorp.com/consul/?_ga=2.162761215.274382960.1520773282-289586393.1498458549)
-
-
 整合的项目包括网关、auth权限服务和backend服务。提供了一套微服务架构下，网关服务路由、鉴权和授权认证的项目案例。整个项目的架构图如下：
 
 ![ms](http://image.blueskykong.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9D%83%E9%99%90%20%281%29.png "微服务架构权限")
@@ -16,7 +12,17 @@
  **你的star是对我最好的鼓励^_^**
 
 ## change logs
+
+### 2019.2.22
+服务发布1.0.0.RELEASE版本，当前版本升级Spring Cloud的版本到`Greenwich.RELEASE`。本次功能优化如下：
+
+- 增加网关异常处理
+- 增加网关函数式降级接口
+- Hystrix降级头部信息获取
+
 ### 2018.9.25
+consul的版本为1.0以下的版本 [下载链接](https://releases.hashicorp.com/consul/?_ga=2.162761215.274382960.1520773282-289586393.1498458549)
+
 增加了Spring Cloud Gateway作为网关实现的模块，详见：[微服务网关Zuul迁移到Spring Cloud Gateway](http://blueskykong.com/2018/09/20/integration-enhanced/)
 
 新增功能：
