@@ -29,7 +29,7 @@ public class GlobalErrorAttributes extends DefaultErrorAttributes {
     private Map<String, Object> assembleError(ServerRequest request) {
         Map<String, Object> errorAttributes = new LinkedHashMap<>();
         Throwable error = getError(request);
-        if (error instanceof Exception) {
+        if (error instanceof ServerException) {
             errorAttributes.put("code", ((ServerException) error).getCode().getCode());
             errorAttributes.put("data", error.getMessage());
 
