@@ -3,6 +3,7 @@ package com.blueskykong.auth.config.oauth;
 import com.blueskykong.auth.security.CustomAuthorizationTokenServices;
 import com.blueskykong.auth.security.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -37,7 +38,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     private WebResponseExceptionTranslator webResponseExceptionTranslator;
 
     @Bean
-    public JdbcClientDetailsService clientDetailsService(DataSource dataSource) {
+    public JdbcClientDetailsService jdbcClientDetailsService(DataSource dataSource) {
         return new JdbcClientDetailsService(dataSource);
     }
 
@@ -53,7 +54,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.withClientDetails(clientDetailsService(dataSource));
+        clients.withClientDetails(jdbcClientDetailsService(dataSource));
     }
 
     @Override
@@ -78,7 +79,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
         customTokenServices.setTokenStore(tokenStore(dataSource));
         customTokenServices.setSupportRefreshToken(true);
         customTokenServices.setReuseRefreshToken(true);
-        customTokenServices.setClientDetailsService(clientDetailsService(dataSource));
+        customTokenServices.setClientDetailsService(jdbcClientDetailsService(dataSource));
         customTokenServices.setTokenEnhancer(accessTokenConverter());
         return customTokenServices;
     }

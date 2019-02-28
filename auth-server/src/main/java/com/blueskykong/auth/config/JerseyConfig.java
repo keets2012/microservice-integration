@@ -5,8 +5,8 @@ import com.blueskykong.auth.rest.ClientSecretResource;
 import com.blueskykong.auth.rest.SecurityResource;
 import com.blueskykong.auth.rest.UserRoleResource;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 import org.springframework.stereotype.Component;
+import org.springframework.web.filter.RequestContextFilter;
 
 import javax.ws.rs.ApplicationPath;
 

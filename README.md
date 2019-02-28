@@ -13,6 +13,14 @@
 
 ## change logs
 
+### 2019.02.28
+
+- 升级auth-server依赖至Spring Cloud Greenwich.RELEASE和 Spring Boot 2.1.3.RELEASE
+- 删除无用依赖
+- 删除资源服务器相关配置
+- 简化DataSource配置
+
+
 ### 2019.2.22
 服务发布1.0.0.RELEASE版本，当前版本升级Spring Cloud的版本到`Greenwich.RELEASE`。本次功能优化如下：
 

@@ -1,7 +1,7 @@
 package com.blueskykong.auth.security;
 
-import com.auth0.jwt.internal.org.apache.commons.lang3.StringUtils;
 import com.blueskykong.auth.client.feign.UserClient;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;

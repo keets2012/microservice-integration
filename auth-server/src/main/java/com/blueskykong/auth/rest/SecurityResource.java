@@ -5,6 +5,7 @@ import com.blueskykong.auth.dao.RoleDAO;
 import com.blueskykong.auth.dao.RolePermissionDAO;
 import com.blueskykong.auth.dao.UserRoleDAO;
 import com.blueskykong.auth.entity.Permission;
+import com.blueskykong.auth.entity.Role;
 import com.blueskykong.auth.entity.RolePermission;
 import com.blueskykong.auth.entity.UserRole;
 import com.blueskykong.auth.service.SecurityService;
@@ -20,6 +21,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.UUID;
 
 /**
