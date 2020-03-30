@@ -7,7 +7,7 @@
 
 ![ms](http://image.blueskykong.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%9D%83%E9%99%90%20%281%29.png "微服务架构权限")
 
-欲了解更多，见博客《[微服务架构中整合网关、权限服务](http://blueskykong.com/2017/12/10/integration/)》 
+欲了解更多，见博客《[微服务架构中整合网关、权限服务](http://blueskykong.com/2017/12/10/integration/)》
 
  **你的star是对我最好的鼓励^_^**
 
@@ -74,7 +74,7 @@ consul的版本为1.0以下的版本 [下载链接](https://releases.hashicorp.c
     "X-AOHO-ClientId": "frontend"
 }
 ```
- 
+
  3.刷新端点
  ![refresh](http://image.blueskykong.com/refreshtoken1.jpg "刷新端点")
 
@@ -89,10 +89,13 @@ consul的版本为1.0以下的版本 [下载链接](https://releases.hashicorp.c
 
 上述请求到达backend被拒绝，因为auth服务使用的userId是随机生成，如果你要真是使用，请修改那部分user服务的实现。
 
-### 写在后面
+### 写在最后
 
-感谢黄同学[@CANGWU](https://github.com/CANGWU) 对Spring EL部分做的修改。
-项目整合如果遇到问题，可以加入qq群649932629，最好大家都能自行搞定。。
+项目整合如果遇到问题，可以加入 qq 群(649932629)交流。
+
+![](http://image.blueskykong.com/qq-chat1.JPG)
+
+ps: qq 交流群已设置付费，可以过滤很多广告，营造高质量的技术交流群。
 
 #### 推荐阅读
 1. [微服务网关netflix-zuul](http://blueskykong.com/2017/11/13/gateway/)
@@ -105,7 +108,3 @@ consul的版本为1.0以下的版本 [下载链接](https://releases.hashicorp.c
 #### 订阅最新文章，欢迎关注我的公众号
 
 ![微信公众号](http://image.blueskykong.com/wechat-public-code.jpg)
-
-
-
-
