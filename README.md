@@ -13,6 +13,10 @@
 
 ## change logs
 
+### 2020.07.6
+
+- 修复依赖报错，升级依赖
+
 ### 2019.02.28
 
 - 升级auth-server依赖至Spring Cloud Greenwich.RELEASE和 Spring Boot 2.1.3.RELEASE
