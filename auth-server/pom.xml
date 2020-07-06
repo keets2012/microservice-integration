@@ -20,7 +20,8 @@
         <oval.version>1.85</oval.version>
         <common.version>1.0-SNAPSHOT</common.version>
         <dbunit.version>2.5.3</dbunit.version>
-        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <guava.version>26.0-jre</guava.version>
+        <spring-cloud.version>Greenwich.SR6</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -130,14 +131,8 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>21.0</version>
+            <version>${guava.version}</version>
             <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.3.0.Final</version>
         </dependency>
 
 

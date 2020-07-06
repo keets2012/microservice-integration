@@ -2,8 +2,8 @@ package com.blueskykong.auth.dto;
 
 import com.blueskykong.auth.exception.ErrorCodes;
 import net.sf.oval.constraint.NotBlank;
+import net.sf.oval.constraint.NotNull;
 
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**
