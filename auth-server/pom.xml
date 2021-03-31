@@ -20,7 +20,7 @@
         <oval.version>1.85</oval.version>
         <common.version>1.0-SNAPSHOT</common.version>
         <dbunit.version>2.5.3</dbunit.version>
-        <guava.version>26.0-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <spring-cloud.version>Greenwich.SR6</spring-cloud.version>
     </properties>
 
